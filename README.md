@@ -17,7 +17,7 @@ Your help is needed.
  > As a user, I want a v2 UI that will render a list of countries and an interactive chart showing the same information as in v1 so that I can compare both versions.
 
 ### Overview
-![Overview](https://media.github.ibm.com/user/203313/files/b4fe6680-c0e0-11ea-873e-3255acafb8bd)
+![Overview](https://media.github.ibm.com/user/203313/files/2fcd7e80-c0ed-11ea-9a65-a1185c5486c9)
 
 ### UI - Home Page
 ![Home Page](https://media.github.ibm.com/user/203313/files/c8a9cd00-c0e0-11ea-9c66-2468ae6fc82e)
