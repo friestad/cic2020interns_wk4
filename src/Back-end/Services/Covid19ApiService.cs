@@ -35,17 +35,14 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Services
                 var responseString = await httpClient.GetStringAsync($"{covid19ApiConfig.BaseUrl}{covid19ApiConfig.RequestUrl}");
                 Console.WriteLine(responseString);
 
-                Console.WriteLine(covid19ApiDataModels);
-                covid19ApiDataModels = JsonConvert.DeserializeObject<List<Covid19ApiDataModel>>(responseString);
-
+                Covid19ApiDataModel temp = JsonConvert.DeserializeObject<Covid19ApiDataModel>(responseString);
+                covid19ApiDataModels.Add(temp);
             }
 
-            covid19ApiDataModels.ForEach(async (covid19ApiDataModel) =>
+            covid19ApiDataModels[0].Countries.ForEach(async (Country) =>
             {
-                var iter = 0;
-                var location = _locator.GetLocation(covid19ApiDataModel.Countries[iter].CountryName);
-                covid19ApiDataModel.Countries[iter].Location = location == null ? new LocationDataModel() { Latitude = 0, Longitude = 0 } : location;
-                iter++;
+                var location = _locator.GetLocation(Country.CountryName);
+                Country.Location = location == null ? new LocationDataModel() { Latitude = 0, Longitude = 0 } : location;
             });
 
             return covid19ApiDataModels;

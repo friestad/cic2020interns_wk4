@@ -31,7 +31,7 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Services
             {
                 
                 var responseString = await httpClient.GetStringAsync($"{apifyConfig.BaseUrl}{apifyConfig.RequestUrl}");
-                apifyDataModels = JsonConvert.DeserializeObject<List<ApifyDataModel.Country>>(responseString);
+                apifyDataModels = JsonConvert.DeserializeObject<List<ApifyDataModel>>(responseString);
             }
 
             apifyDataModels.ForEach(async (apifyDataModel) =>
