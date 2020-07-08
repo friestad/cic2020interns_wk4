@@ -26,7 +26,7 @@ Your help is needed.
 ![Version 1](https://media.github.ibm.com/user/203313/files/a1eb9680-c0e0-11ea-8474-c58bef01db45)
 
 ## Development Tasks
-Hint: `Ctrl+Shift+F` //Task:
+**Hint:** `Ctrl+Shift+F` `//Task:`
 ### Back-end Tasks
 - [ ] Implement Covid19ApiService
 - [ ] Inject Covid19ApiService
