@@ -28,12 +28,12 @@ Your help is needed.
 ## Development Tasks
 Hint: `Ctrl+Shift+F` //Task:
 ### Back-end Tasks
-1. Implement Covid19ApiService
-2. Inject Covid19ApiService
-3. Implement Covid19Api API
+- [ ] Implement Covid19ApiService
+- [ ] Inject Covid19ApiService
+- [ ] Implement Covid19Api API
 
 ### Front-end Tasks
-Develop JS to populate chart and table data
+- [ ] Develop JS to populate chart and table data
 
 ## Project Directory Structure 
 ```
