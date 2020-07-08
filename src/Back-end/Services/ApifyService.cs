@@ -29,8 +29,9 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Services
             List<ApifyDataModel> apifyDataModels = new List<ApifyDataModel>();
             using (HttpClient httpClient = new HttpClient())
             {
+                
                 var responseString = await httpClient.GetStringAsync($"{apifyConfig.BaseUrl}{apifyConfig.RequestUrl}");
-                apifyDataModels = JsonConvert.DeserializeObject<List<ApifyDataModel>>(responseString);
+                apifyDataModels = JsonConvert.DeserializeObject<List<ApifyDataModel.Country>>(responseString);
             }
 
             apifyDataModels.ForEach(async (apifyDataModel) =>
@@ -38,7 +39,7 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Services
                 var location = _locator.GetLocation(apifyDataModel.Country);
                 apifyDataModel.Location = location == null ? new LocationDataModel() { Latitude = 0, Longitude = 0 } : location;
             });
-
+            Console.WriteLine(apifyDataModels);
             return apifyDataModels;
         }
     }

@@ -34,6 +34,7 @@ namespace Ibm.Br.Cic.Internship.Covid
 
             services.AddHttpClient();
 
+            services.AddTransient<ICovid19Api, Covid19ApiService>();
             services.AddTransient<IApify, ApifyService>();
             services.AddSingleton<ILocator, LocatorService>();
 
