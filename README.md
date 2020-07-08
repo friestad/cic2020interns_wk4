@@ -1,12 +1,14 @@
 # cic2020interns_wk4 - Implementing COVID-19 API
 ## .NET Mini-Challenge
 https://api.covid19api.com/
+
 https://api.apify.com
 
 ## Scenario
 Because of your extensive COVID API knowledge, you have been assigned to Scrum Team 19. This team is developing a PoC to compare different API services. The problem is that too many hours were burned on v1 and now the team is in the red. 
 
 Version 1 is available via https://api.apify.com
+
 Version 2 is available via https://api.covid19api.com/
 
 Your help is needed. 
@@ -22,6 +24,15 @@ Your help is needed.
 
 ### UI - v1 Implementation
 ![Version 1](https://media.github.ibm.com/user/203313/files/a1eb9680-c0e0-11ea-8474-c58bef01db45)
+
+## Development Tasks
+### Back-end Tasks
+1. Implement Covid19ApiService
+2. Inject Covid19ApiService
+3. Implement Covid19Api API
+
+### Front-end Tasks
+Develop JS to populate chart and table data
 
 ## Project Directory Structure 
 ```
