@@ -71,9 +71,11 @@
     <Content Include="css\main.css" />
     <Content Include="Index.aspx" />
     <Content Include="js\apify.js" />
+    <Content Include="js\comparison.js" />
     <Content Include="js\covid19api.js" />
     <Content Include="statistics\apify.aspx" />
     <Content Include="statistics\covid19api.aspx" />
+    <Content Include="statistics\comparison.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +100,13 @@
     </Compile>
     <Compile Include="statistics\covid19api.aspx.designer.cs">
       <DependentUpon>covid19api.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="statistics\comparison.aspx.cs">
+      <DependentUpon>comparison.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="statistics\comparison.aspx.designer.cs">
+      <DependentUpon>comparison.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

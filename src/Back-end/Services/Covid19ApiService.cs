@@ -41,7 +41,7 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Services
 
             covid19ApiDataModels[0].Countries.ForEach(async (Country) =>
             {
-                var location = _locator.GetLocation(Country.CountryName);
+                var location = _locator.GetLocation2(Country.CountryCode);
                 Country.Location = location == null ? new LocationDataModel() { Latitude = 0, Longitude = 0 } : location;
             });
 

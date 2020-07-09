@@ -62,7 +62,7 @@
 
     let colorSet = new am4core.ColorSet();
 
-    fetch("https://localhost:44356/api/v1/c19api")
+    fetch("https://localhost:44380/api/v1/c19api")
         .then(response => response.json())
         .then(countries => {
 

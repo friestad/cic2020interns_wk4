@@ -33,5 +33,19 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Services
 
             return locationModel;
         }
+
+        public LocationDataModel GetLocation2(string countryCode)
+        {
+            var locatorConfig = new LocatorConfig();
+            _configuration.GetSection("LocatorConfig").Bind(locatorConfig);
+
+            string contentRootPath = _webHostEnvironment.ContentRootPath;
+            var json = File.ReadAllText($"{contentRootPath}/Data/{locatorConfig.Path}");
+            var list = JsonConvert.DeserializeObject<List<LocationDataModel>>(json);
+
+            LocationDataModel locationModel = list.Find(location => location.Country.Equals(countryCode, StringComparison.OrdinalIgnoreCase)); 
+
+            return locationModel;
+        }
     }
 }

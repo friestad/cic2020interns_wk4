@@ -1,7 +1,4 @@
-﻿//Task: Develop JS to populate table data
-//Task: Develop JS to populate chart data
-
-am4core.ready(function () {
+﻿am4core.ready(function () {
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -64,16 +61,15 @@ am4core.ready(function () {
     }
 
     let colorSet = new am4core.ColorSet();
+    let chartData = [];
+    
 
     fetch("https://localhost:44380/api/v2/c19api")
         .then(response => response.json())
         .then(countries => {
-            console.log(countries[0].countries);
 
             const MAX = 20;
-
-            let chartData = [];
-
+            console.log(countries[0].countries);
             let tableData = "<table>";
             tableData += "<thead>";
             tableData += "<tr>";
@@ -82,23 +78,18 @@ am4core.ready(function () {
             tableData += "</tr>";
             tableData += "</thead>";
 
+
             countries[0].countries.sort((a, b) => parseFloat(b.totalConfirmed) - parseFloat(a.totalConfirmed));
 
             countries[0].countries.forEach(function (item, index) {
-                console.log(item.totalConfirmed);
+
+               
 
                 if (index >= MAX)
                     return;
 
                 let color = "darkred";
-                if (index < 5)
-                    color = "darkred";
-                if (index >= 5 && index < 10)
-                    color = "red";
-                if (index >= 10 && index < 15)
-                    color = "darkorange";
-                if (index >= 15)
-                    color = "orange";
+               
 
                 let i = index / countries.length;
 
@@ -108,7 +99,7 @@ am4core.ready(function () {
                     longitude: item.location.longitude,
                     color: am4core.color(color)
                 }
-
+                
                 tableData += "<tbody>";
                 tableData += "<tr>";
                 tableData += "<td>" + item.countryName + "</td>";
@@ -119,9 +110,66 @@ am4core.ready(function () {
                 chartData.push(datum);
             });
 
+            
             tableData += "</table>";
 
-            document.getElementById("tablediv").innerHTML = tableData;
+            document.getElementById("tablediv1").innerHTML = tableData;
+            
+
+            imageSeries.data = chartData;
+        })
+        .catch(function (error) {
+            console.log("error", error);
+        });
+
+    fetch("https://localhost:44380/api/v1/c19api")
+        .then(response => response.json())
+        .then(countries => {
+
+            const MAX = 20;
+            console.log(countries);
+            let tableData = "<table>";
+            tableData += "<thead>";
+            tableData += "<tr>";
+            tableData += "<th>Country</th>";
+            tableData += "<th>Infected</th>";
+            tableData += "</tr>";
+            tableData += "</thead>";
+
+            countries.sort((a, b) => parseFloat(b.infected) - parseFloat(a.infected));
+
+            countries.forEach(function (item, index) {
+
+                if (index >= MAX)
+                    return;
+
+                let color = "blue";
+
+
+                let i = index / countries.length;
+
+                let datum = {
+                    title: item.country,
+                    latitude: item.location.latitude,
+                    longitude: item.location.longitude,
+                    color: am4core.color(color)
+                }
+                tableData += "<tbody>";
+                tableData += "<tr>";
+                tableData += "<td>" + item.country + "</td>";
+                tableData += "<td>" + item.infected + "</td>";
+                tableData += "<tr>";
+                tableData += "</tbody>";
+
+
+                chartData.push(datum);
+            });
+
+
+            tableData += "</table>";
+
+            document.getElementById("tablediv2").innerHTML = tableData;
+
 
             imageSeries.data = chartData;
         })
