@@ -13,7 +13,7 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Controllers
     [ApiController]
     [Route("api/v2/c19api")]
     [Produces("application/json")]    
-    public class Covid19ApiController : Controller
+    public class Covid19ApiController : ControllerBase
     {
         //Task: Implement API
         private readonly ICovid19Api _covid19Api;
@@ -26,7 +26,7 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await this._covid19Api.GetDataAsync();
+            var result = await this._covid19Api.GetData();
             Console.WriteLine(result);
             return Ok(result);
 

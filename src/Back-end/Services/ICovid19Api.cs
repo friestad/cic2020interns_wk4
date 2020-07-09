@@ -8,6 +8,6 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Services
 {
     public interface ICovid19Api
     {
-        Task<IEnumerable<Covid19ApiDataModel>> GetDataAsync();
+        Task<IEnumerable<Covid19ApiDataModel>> GetData();
     }
 }

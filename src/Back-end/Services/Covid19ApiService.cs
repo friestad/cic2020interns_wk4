@@ -23,7 +23,7 @@ namespace Ibm.Br.Cic.Internship.Covid.Be.Services
 
         //Task: Implement Service
         //Add method (Task<IEnumerable<Covid19ApiDataModel>> GetData()) to ICovid19ApiService
-        public async Task<IEnumerable<Covid19ApiDataModel>> GetDataAsync()
+        public async Task<IEnumerable<Covid19ApiDataModel>> GetData()
         {
             var covid19ApiConfig = new Covid19ApiConfig();
             _configuration.GetSection("Covid19ApiConfig").Bind(covid19ApiConfig);
